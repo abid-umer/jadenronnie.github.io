@@ -197,9 +197,13 @@ body {
 }
 .menu-item-description {  padding-right: 30px;}
 
-h3.menu-item-title {  margin: 0 0 10px;}
+h3.menu-item-title {  
+  color: #000000;
+  margin: 0 0 10px;
+  }
 .menu-item-details {
   font-size: .9em;
+  color: #000000;
   font-style: italic;
 }
 /* END SINGLE CATEGORY PAGE */
