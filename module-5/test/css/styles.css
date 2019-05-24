@@ -206,6 +206,9 @@ h3.menu-item-title {
   color: #000000;
   font-style: italic;
 }
+#menu-categories-title{
+  color: #000000;
+}
 /* END SINGLE CATEGORY PAGE */
 
 #about-view a:hover {color: #D0852D;}
