@@ -12,6 +12,7 @@ body {
 
 /** HEADER **/
 #header-nav {
+  background-color: #D0852D;
   border-radius: 0;
   border: 0;
   box-shadow: 0 0 10px #000000;
@@ -25,16 +26,15 @@ body {
 }
 
 .navbar-brand {
-	margin-top: 35px;
   padding-top: 25px;
 }
 .navbar-brand h1 { /* Restaurant name */
   font-family: 'Lora', serif;
-  color: #000000;
+  color: #420500;
   font-size: 1.5em;
   text-transform: uppercase;
   font-weight: bold;
-  text-shadow: 1px 1px 1px #d9a751;
+  text-shadow: 1px 1px 1px #701C09;
   margin-top: 0;
   margin-bottom: 0;
   line-height: .75;
@@ -48,9 +48,9 @@ body {
 }
 .navbar-brand p span { /* Star-K */  vertical-align: middle;}
 
-#nav-list {  margin-top: 35px;}
+#nav-list {  margin-top: 10px;}
 #nav-list a {
-  color: #000000;
+  color: #701C09;
   text-align: center;
   font-weight: bold;
 }
@@ -68,7 +68,7 @@ body {
   padding-right: 15px;
 }
 
-.navbar-header button.navbar-toggle, .navbar-header .icon-bar {  border: 1px solid #d9a751;}
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {  border: 1px solid #701C09;}
 .navbar-header button.navbar-toggle {
   clear: both;
   margin-top: -30px;
@@ -103,8 +103,8 @@ body {
 
 /* HOME PAGE */
 .container .jumbotron {
-  box-shadow: 0 0 60px #d9a751;
-  border: 2px solid #d9a751;
+  box-shadow: 0 0 60px #701C09;
+  border: 2px solid #701C09;
 }
 
 #menu-tile, #specials-tile, #map-tile {
@@ -112,7 +112,7 @@ body {
   width: 100%;
   margin-bottom: 15px;
   position: relative;
-  border: 2px solid #d9a751;
+  border: 2px solid #701C09;
   overflow: hidden;
 }
 #menu-tile:hover, #specials-tile:hover, #map-tile:hover {  box-shadow: 0 1px 5px 1px #cccccc;}
@@ -143,7 +143,7 @@ body {
 /* MENU CATEGORIES PAGE */
 .category-tile { 
   position: relative;
-  border: 2px solid #d9a751;
+  border: 2px solid #701C09;
   overflow: hidden;
   width: 200px;
   height: 200px;
@@ -179,7 +179,7 @@ body {
 .menu-item-tile .menu-item-price span {  font-size: .6em;}
 .menu-item-photo {
   position: relative;
-  border: 2px solid #d9a751; 
+  border: 2px solid #701C09; 
   overflow: hidden;
   padding: 0;
   margin-right: -15px;
@@ -192,22 +192,15 @@ body {
   bottom: 0;
   right: 0;
   width: 80px;
-  background-color: #d9a751;
+  background-color: #701C09;
   text-align: center;
 }
 .menu-item-description {  padding-right: 30px;}
 
-h3.menu-item-title {  
-  color: #000000;
-  margin: 0 0 10px;
-  }
+h3.menu-item-title {  margin: 0 0 10px;}
 .menu-item-details {
   font-size: .9em;
-  color: #000000;
   font-style: italic;
-}
-#menu-categories-title{
-  color: #000000;
 }
 /* END SINGLE CATEGORY PAGE */
 
@@ -286,7 +279,7 @@ h3.menu-item-title {
     padding: 10px;
     border: 2px solid #fff;
     background-color: #D0852D;
-    color: #d9a751;
+    color: #701C09;
   }
   #xs-deliver {
     margin-top: 5px;
