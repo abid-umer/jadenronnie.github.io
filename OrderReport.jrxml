@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6f680489-c32b-4b3a-91d4-d421d0622296">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="55884e59-d986-4177-8698-881a1356fe4d"/>
+	<parameter name="expense" class="java.lang.Integer"/>
+	<parameter name="cash" class="java.lang.Object"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM `order`]]>
+	</queryString>
+	<field name="order_id" class="java.lang.Object"/>
+	<field name="order_price" class="java.lang.Object"/>
+	<field name="order_date" class="java.lang.Object"/>
+	<field name="order_time" class="java.lang.Object"/>
+	<field name="order_discount" class="java.lang.Object"/>
+	<field name="order_gst" class="java.lang.Object"/>
+	<field name="order_table" class="java.lang.Object"/>
+	<field name="order_servicecharges" class="java.lang.Object"/>
+	<variable name="total" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{order_price}]]></variableExpression>
+	</variable>
+	<variable name="discount" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{order_discount}]]></variableExpression>
+	</variable>
+	<variable name="gst" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{order_gst}]]></variableExpression>
+	</variable>
+	<variable name="servicecharges" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{order_servicecharges}]]></variableExpression>
+	</variable>
+	<variable name="cash_in_hand" class="java.lang.Double">
+		<variableExpression><![CDATA[new Double($V{total}.doubleValue() - $P{expense}.doubleValue())]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="193" y="0" width="187" height="35" uuid="d40eb8a7-424c-419a-87a5-5f439aaa7e61"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sugar & Spice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="35" width="160" height="31" uuid="258af89f-6af4-4352-88ae-8ece4d119b99"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Order Wise Report of:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="261" y="35" width="278" height="31" uuid="58fe2710-b25a-45a0-8e5a-aac7e408904e"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="75" height="20" uuid="a3d033aa-4108-4ad3-873f-b278cef34732"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="0" width="99" height="20" uuid="c933b9d8-a5bd-4406-a43e-2aa65eb51fd8"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="0" width="108" height="20" uuid="e43b17e8-6344-49f3-8852-6f3e241d4c98"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="0" width="86" height="20" uuid="0c6102f9-b45c-494a-bddb-aeafc58b37a9"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order GST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="100" height="20" uuid="50465969-061d-4ba8-a4eb-0c7b562fee37"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Service Charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="0" width="87" height="20" uuid="255f72d4-fef2-488d-8e2a-8dea91bedb42"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="75" height="20" uuid="aefb5cbd-27e4-424e-8d85-873907789d55"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[""+$F{order_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="0" width="99" height="20" uuid="18ec056c-832d-4f96-9d34-e4ab43211958"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[""+$F{order_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="0" width="108" height="20" uuid="6c725e1d-f774-4ee0-90fa-53c9e2e206e2"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[""+$F{order_discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="0" width="86" height="20" uuid="1cea0da5-e9ca-4f71-adaa-0595998f263a"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[""+$F{order_gst}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="e38f8c52-c520-403c-96bd-0f9d7ff8e2c1"/>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[""+$F{order_servicecharges}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="0" width="87" height="20" uuid="a7f3d857-6172-454f-af41-73ba82070cc3"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[""+$F{order_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="274" splitType="Stretch">
+			<rectangle>
+				<reportElement x="247" y="16" width="308" height="230" uuid="f777adce-da52-4d01-9a78-cbb48f2d5728"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="255" y="59" width="125" height="16" uuid="7f8713a7-5b5a-4b5b-af0b-9e4fc35d30a9"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Today's Date:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="439" y="59" width="100" height="16" uuid="67841102-50f9-40ec-b0b3-86605038320f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="255" y="85" width="125" height="16" uuid="15ff700b-37d4-4032-a9b2-9988c81dcaf7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Amount:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="439" y="85" width="100" height="16" uuid="75f33b27-67f7-49ed-b6fb-93de0bb867c5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="255" y="111" width="125" height="16" uuid="8c7cae79-a16b-4b8b-9e2d-13b57575174b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Discount:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="138" width="125" height="16" uuid="d83f509b-268a-4878-933b-8469e7fb76e8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total GST:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="164" width="125" height="16" uuid="3cdb45cb-a707-4796-8020-35fd2d9227c9"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Service charges:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="439" y="164" width="100" height="16" uuid="b025ede5-5b7a-4a1a-a268-cec8ad0a2e78"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{servicecharges}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="138" width="100" height="16" uuid="71237484-24d7-4528-8f9b-62e548945da4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{gst}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="111" width="100" height="16" uuid="0fdb5ec9-5d27-469b-9a4b-d43699b54e4d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{discount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="255" y="192" width="125" height="16" uuid="cbcc1192-70a0-40d8-981e-bbcbeb987945"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Expense:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="439" y="192" width="100" height="16" uuid="2f55be58-25c6-4554-9a89-37e0616a496b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{expense}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="255" y="220" width="153" height="16" uuid="6f1d4bf0-c9e7-4e7d-85a3-42b16bf6e500"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cash [expense subtracted]:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="247" y="47" width="308" height="1" uuid="b6b65191-0710-4782-99a3-0435e0448a52"/>
+			</line>
+			<staticText>
+				<reportElement x="253" y="22" width="184" height="21" uuid="b06d17a8-2bbe-4baa-b88a-1943a550dfad"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Report Summary]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="439" y="220" width="100" height="16" uuid="8ca6a4ec-710e-4171-a613-4ffb797e602b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{cash_in_hand}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
